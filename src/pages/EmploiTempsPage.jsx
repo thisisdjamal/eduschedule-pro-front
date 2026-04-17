@@ -10,15 +10,15 @@ function EmploiTempsPage() {
 
       {/* FILTRES */}
       <div style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-        <select style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}>
+        <select style={{ padding: '8px', borderRadius: '5px', border: '1px solid #f52985' }}>
           <option>Toutes les classes</option>
           <option>Licence 1</option>
           <option>Licence 2</option>
           <option>Licence 3</option>
           <option>Master 1</option>
         </select>
-        <input type="week" style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }} />
-        <button style={{ padding: '8px 20px', backgroundColor: '#0d6efd', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+        <input type="week" style={{ padding: '8px', borderRadius: '5px', border: '1px solid #f52985' }} />
+        <button style={{ padding: '8px 20px', backgroundColor: '#6d421a', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
           Filtrer
         </button>
       </div>
@@ -27,7 +27,7 @@ function EmploiTempsPage() {
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
           <thead>
-            <tr style={{ backgroundColor: '#0d6efd', color: 'white' }}>
+            <tr style={{ backgroundColor: '#6d421a', color: 'white' }}>
               <th style={{ padding: '12px', textAlign: 'center' }}>Heure</th>
               {jours.map(jour => (
                 <th key={jour} style={{ padding: '12px', textAlign: 'center' }}>{jour}</th>
@@ -36,12 +36,12 @@ function EmploiTempsPage() {
           </thead>
           <tbody>
             {heures.map((heure, index) => (
-              <tr key={heure} style={{ backgroundColor: index % 2 === 0 ? '#f8f9fa' : 'white' }}>
-                <td style={{ padding: '12px', textAlign: 'center', fontWeight: 'bold', color: '#0d6efd', borderRight: '2px solid #dee2e6' }}>
+              <tr key={heure} style={{ backgroundColor: index % 2 === 0 ? '#eddee6' : 'white' }}>
+                <td style={{ padding: '12px', textAlign: 'center', fontWeight: 'bold', color: '#6d421a', borderRight: '2px solid #f49dea' }}>
                   {heure}
                 </td>
                 {jours.map(jour => (
-                  <td key={jour} style={{ padding: '8px', textAlign: 'center', border: '1px solid #dee2e6', minWidth: '120px', minHeight: '60px' }}>
+                  <td key={jour} style={{ padding: '8px', textAlign: 'center', border: '1px solid #edaed4', minWidth: '120px', minHeight: '60px' }}>
                   </td>
                 ))}
               </tr>
