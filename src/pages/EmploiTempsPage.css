@@ -1,14 +1,16 @@
 .class-selector {
   background: linear-gradient(135deg, #1E293B 0%, #334155);
   padding: 20px;
- 
+ border: 1px;
   margin-bottom: 20px;
   color: white;
+   border-radius: 8px;
 }
 
 .class-selector h4 {
   margin: 0 0 12px 0;
   font-size: 14px;
+   border-radius: 6px;
 }
 
 .classes-grid {
@@ -41,7 +43,7 @@
 .week-selector {
   background: #F9FAFB;
   padding: 15px 20px;
- 
+  border-radius: 6px;
   margin-bottom: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -53,11 +55,12 @@
   margin: 0;
   font-size: 14px;
   color: #1E293B;
+   border-radius: 6px;
 }
 
 .date-input {
   padding: 8px 12px;
- 
+  border-radius: 6px;
   font-size: 13px;
   cursor: pointer;
 }
@@ -79,7 +82,7 @@
   color: white;
   border: none;
   padding: 8px 15px;
-
+ border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 13px;
@@ -108,7 +111,7 @@
 .form-container {
   background: white;
   padding: 30px;
- 
+  border-radius: 6px;
   max-width: 600px;
   width: 90%;
   max-height: 90vh;
@@ -146,7 +149,7 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  
+   border-radius: 6px;
   box-shadow: 0 0 8px rgba(13, 110, 253, 0.2);
 }
 
@@ -167,7 +170,7 @@
   flex: 1;
   padding: 10px;
   border: none;
- 
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 13px;
@@ -345,13 +348,14 @@
   top: 2px;
   right: 2px;
   font-size: 10px;
+  border-radius: 12px;
 }
 
 /* STATISTIQUES */
 .stats-section {
   background: white;
   padding: 20px;
-  
+  border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -359,17 +363,20 @@
   margin-top: 0;
   color: #1E293B;
   margin-bottom: 15px;
+  border-radius: 12px;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
+  border-radius: 12px;
 }
 
 .stat-card {
   padding: 12px;
   background-color: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  border-radius: 12px;
 
 
   text-align: center;
@@ -382,6 +389,7 @@
   margin-bottom: 6px;
   text-transform: uppercase;
   font-weight: 600;
+  border-radius: 12px;
 }
 
 .stat-card .big {
@@ -389,6 +397,7 @@
   font-weight: bold;
   margin: 0;
   color: #1E293B;
+  border-radius: 12px;
 }
 /* ============================================================================
    ACTIONS EMPLOI DU TEMPS
