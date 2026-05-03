@@ -255,7 +255,6 @@ function VacationsPage() {
               <th>Montant Brut</th>
               <th>Montant Net</th>
               <th>Statut</th>
-              <th>Validations</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -268,13 +267,6 @@ function VacationsPage() {
                 <td>{vacation.montant_brut.toLocaleString('fr-FR')} FCFA</td>
                 <td className="montant-net">{vacation.montant_net.toLocaleString('fr-FR')} FCFA</td>
                 <td><span className={`status-badge status-${vacation.statut.toLowerCase().replace(' ', '-')}`}>{vacation.statut}</span></td>
-                <td>
-                  <div className="validation-indicators">
-                    <span className={vacation.signature_enseignant ? 'indicator-ok' : 'indicator-pending'} title="Signature Enseignant">✍️</span>
-                    <span className={vacation.visa_surveillant ? 'indicator-ok' : 'indicator-pending'} title="Visa Surveillant">🔒</span>
-                    <span className={vacation.validation_comptable ? 'indicator-ok' : 'indicator-pending'} title="Validation Comptable">💰</span>
-                  </div>
-                </td>
                 <td>
                   <button className="btn-view" onClick={() => handleViewDetails(vacation)}>Voir Détails</button>
                   <button className="btn-pdf" onClick={() => generatePDF(vacation)}>PDF</button>

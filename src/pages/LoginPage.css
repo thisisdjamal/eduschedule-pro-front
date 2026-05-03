@@ -2,12 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f0f4f8;
+  background-image: url("../assets/Background2.jpeg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
 }
 
+
 .login-card {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 40px;
   border-radius: 10px;
   width: 400px;
@@ -16,7 +24,7 @@
 
 .login-title {
   text-align: center;
-  color: #0d6efd;
+  color: #33180897;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -65,7 +73,7 @@
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #0d6efd;
+  background-color:  #33180897;
   color: white;
   border: none;
   border-radius: 5px;

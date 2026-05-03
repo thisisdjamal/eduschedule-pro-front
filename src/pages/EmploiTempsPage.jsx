@@ -1,8 +1,10 @@
 import DashboardLayout from '../components/DashboardLayout'
 import './EmploiTempsPage.css'
 import { useState } from 'react'
+import {useAuth} from '../context/AuthContext'
 
 function EmploiTempsPage() {
+  const{role}= useAuth()
   const [classes] = useState(['Licence 1', 'Licence 2', 'Licence 3', 'Master 1', 'Master 2'])
   const [selectedClass, setSelectedClass] = useState('Licence 1')
   const [selectedWeek, setSelectedWeek] = useState('2025-04-27')
@@ -148,6 +150,34 @@ function EmploiTempsPage() {
       })
     }
   }
+  const handlePublishEmploiTemps = (classe) => {
+  setEmploiTemps({
+    ...emploiTemps,
+    [classe]: emploiTemps[classe].map(e => ({ ...e, publie: true }))
+  })
+  alert('✅ Emploi du temps publié pour ' + classe)
+}
+
+const handleUnpublishEmploiTemps = (classe) => {
+  setEmploiTemps({
+    ...emploiTemps,
+    [classe]: emploiTemps[classe].map(e => ({ ...e, publie: false }))
+  })
+  alert('✅ Emploi du temps dépublié pour ' + classe)
+}
+
+const handleDuplicateEmploiTemps = (classe) => {
+  const seancesDupliquees = emploiTemps[classe].map(seance => ({
+    ...seance,
+    id: Math.max(...Object.values(emploiTemps).flat().map(e => e.id)) + 1,
+    publie: false
+  }))
+  setEmploiTemps({
+    ...emploiTemps,
+    [classe]: [...emploiTemps[classe], ...seancesDupliquees]
+  })
+  alert('✅ Emploi du temps dupliqué vers la semaine suivante')
+}
 
   const getSeanceAt = (jour, heure) => {
     const heureDebut = heure.split(' ')[0]
@@ -184,16 +214,43 @@ function EmploiTempsPage() {
           className="date-input"
         />
         <span className="week-label">{getWeekLabel(selectedWeek)}</span>
+        {role === 'admin' && (
         <button className="btn-add-seance" onClick={() => handleOpenForm()}>
           ➕ Ajouter une séance
         </button>
+        )}
       </div>
 
+      {/* ACTIONS EMPLOI DU TEMPS */}
+       {role === 'admin' && (
+<div className="emploi-actions">
+  <h4>Actions sur l'emploi du temps</h4>
+  <div className="actions-buttons">
+   
+    <button className="btn-action-emploi btn-publish-emploi" onClick={() => handlePublishEmploiTemps(selectedClass)}>
+       Publier l'emploi du temps
+    </button>
+    
+       
+    <button className="btn-action-emploi btn-unpublish-emploi" onClick={() => handleUnpublishEmploiTemps(selectedClass)}>
+       Dépublier l'emploi du temps
+    </button>
+    <button className="btn-action-emploi btn-duplicate-emploi" onClick={() => handleDuplicateEmploiTemps(selectedClass)}>
+      Dupliquer vers semaine suivante
+    </button>
+      
+    
+  </div>
+  
+</div>
+       )}
+
+
       {/* FORMULAIRE */}
-      {showForm && (
+      { role === 'admin' && showForm && (
         <div className="form-modal">
           <div className="form-container">
-            <h3>{editingId ? '✏️ Modifier la séance' : '➕ Nouvelle séance'}</h3>
+            <h3>{editingId ? 'Modifier la séance' : '➕ Nouvelle séance'}</h3>
             
             <div className="form-group">
               <label>Matière *</label>
@@ -302,8 +359,8 @@ function EmploiTempsPage() {
                             <div className="course-matiere">{seance.matiere}</div>
                             <div className="course-enseignant">{seance.enseignant}</div>
                             <div className="course-salle">{seance.salle}</div>
-                            
-                            <div className="course-actions">
+                            { role === 'admin' && (
+                              <div className="course-actions">
                               <button className="action-btn edit" onClick={() => handleOpenForm(seance)} title="Modifier">✏️</button>
                               {seance.publie ? (
                                 <button className="action-btn unpublish" onClick={() => handleUnpublish(seance.id)} title="Dépublier">🔒</button>
@@ -313,6 +370,9 @@ function EmploiTempsPage() {
                               <button className="action-btn duplicate" onClick={() => handleDuplicate(seance.id)} title="Dupliquer">📋</button>
                               <button className="action-btn delete" onClick={() => handleDelete(seance.id)} title="Supprimer">🗑️</button>
                             </div>
+                            )}
+
+                            
 
                             <span className={`course-status ${seance.publie ? 'publiee' : 'brouillon'}`}>
                               {seance.publie ? '✅' : '📝'}

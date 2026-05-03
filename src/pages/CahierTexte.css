@@ -1,5 +1,5 @@
 .btn-create {
-  background-color: #28a745;
+  background-color: #194789;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -10,7 +10,7 @@
 }
 
 .btn-create:hover {
-  background-color: #218838;
+  background-color: #194789;
 }
 
 .cahier-table-container {
@@ -26,7 +26,7 @@
 }
 
 .cahier-table thead tr {
-  background-color: #0d6efd;
+  background-color: #1E293B;
   color: white;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .btn-action {
-  background-color: #0d6efd;
+  background-color: #1E293B;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -74,7 +74,7 @@
 }
 
 .btn-action:hover {
-  background-color: #0b5ed7;
+  background-color: #1E293B;
 }
 
 .cahier-form-container {
@@ -127,7 +127,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #0d6efd;
+  border-color: #334155;
   box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
 }
 
@@ -268,7 +268,7 @@
 }
 
 .cahier-content strong {
-  color: #0d6efd;
+  color: #1E293B;
 }
 
 .cahier-content p {

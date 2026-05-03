@@ -9,7 +9,7 @@ function CahierTexte() {
     { id: 2, classe: 'Licence 1', matiere: 'Physique', date: '2025-04-16', statut: 'Brouillon', enseignant: 'Dr BERE' },
   ])
 
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false) //affiche et cache le formulaire de creation
   const [formData, setFormData] = useState({
     classe: '',
     matiere: '',
@@ -22,15 +22,18 @@ function CahierTexte() {
   })
 
   const [currentCahier, setCurrentCahier] = useState(null)
+  //pour les signatures numeriques
   const canvasDeleguRef = useRef()
   const canvasEnseignantRef = useRef()
   let signaturePadDelegu, signaturePadEnseignant
 
+  //cette fonction met à jour le champs du formulaire,,,pour tous les input et select du formulaire
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
   }
 
+  //initialise les canvs de signature
   const initSignaturePads = () => {
     if (canvasDeleguRef.current && !signaturePadDelegu) {
       signaturePadDelegu = new SignaturePad(canvasDeleguRef.current, {
@@ -46,10 +49,12 @@ function CahierTexte() {
     }
   }
 
+  //ouvre le formulaire de creation,,,reinitialise le formulaire et initialise les canva de signature
   const handleCreateCahier = () => {
     setShowForm(true)
     setCurrentCahier(null)
-    setFormData({
+
+    setFormData({ //vide le formulaire
       classe: '',
       matiere: '',
       titre_cours: '',
@@ -61,15 +66,16 @@ function CahierTexte() {
     })
     setTimeout(initSignaturePads, 100)
   }
-
+//valide les donnees obligatoires, verifie que les deux sigatures sont presentes, puis creer un nouveau cahier avec les signatures en base 64
   const handleSaveCahier = async () => {
+    //verifie les champs obligatoires
     if (!formData.classe || !formData.titre_cours) {
       alert('Veuillez remplir les champs obligatoires')
       return
     }
-
+     //initialise les signatures au cas ou
     initSignaturePads()
-
+//verifie que les deux signatures sont presentes
     if (signaturePadDelegu.isEmpty() || signaturePadEnseignant.isEmpty()) {
       alert('Les deux signatures sont obligatoires')
       return
@@ -91,12 +97,14 @@ function CahierTexte() {
       signature_delegu: signaturePadDelegu.toDataURL(),
       signature_enseignant: signaturePadEnseignant.toDataURL()
     }
-
+    //Ajoute un nouveau cahier au debut de la liste
     setCahiers([newCahier, ...cahiers])
+
+    //ferme le formulaire et affiche un message de succes
     setShowForm(false)
     alert('✅ Cahier de texte enregistré et signé')
   }
-
+//efface une signature et permet a l'utilisateur de recommencer sa signature si il s'est trompé
   const handleClearSignature = (pad) => {
     if (pad === 'delegu') signaturePadDelegu?.clear()
     if (pad === 'enseignant') signaturePadEnseignant?.clear()

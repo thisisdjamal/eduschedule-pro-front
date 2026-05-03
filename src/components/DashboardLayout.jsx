@@ -18,12 +18,13 @@ function DashboardLayout({ children }) {
   }
 
   // Menu items selon le rôle
-  const getMenuItems = () => {
+  const getMenuItems = () => { // Items communs à tous les rôles
     const commonItems = [
       { label: 'Tableau de bord', icon: '📊', path: '/dashboard' }
     ]
-
-    switch(role) {
+    
+    switch(role) // retourne les items selon le role 
+    {
       case 'admin':
         return [
           ...commonItems,
@@ -55,7 +56,7 @@ function DashboardLayout({ children }) {
     }
   }
 
-  const menuItems = getMenuItems()
+  const menuItems = getMenuItems() //recupere les items du menu selon le role
 console.log('Role:', role)
 console.log('Menu items:', menuItems)
 
