@@ -141,7 +141,7 @@ function GestionPage() {
 
   return (
     <DashboardLayout>
-      <h2>⚙️ Gestion</h2>
+      <h2> Gestion</h2>
 
       {/* TABS */}
       <div className="gestion-tabs">
