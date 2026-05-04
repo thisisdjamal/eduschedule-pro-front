@@ -1,0 +1,189 @@
+.gestion-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+.tab-btn {
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #4B5563;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: #008080;
+  border-bottom-color: #008080;
+}
+
+.tab-btn:hover {
+  color: #008080;
+}
+
+.gestion-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tab-content h3 {
+  margin-top: 0;
+  color: #1E293B;
+}
+
+.btn-add {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: #006666;
+}
+
+.gestion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gestion-table thead {
+  background-color: #F9FAFB;
+}
+
+.gestion-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #E5E7EB;
+  color: #1E293B;
+}
+
+.gestion-table td {
+  padding: 12px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.gestion-table tbody tr:nth-child(even) {
+  background-color: #F9FAFB;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.btn-edit:hover {
+  background-color: #E3F2FD;
+}
+
+.btn-delete:hover {
+  background-color: #FFEBEE;
+}
+.form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.form-container h3 {
+  margin-top: 0;
+  color: #1E293B;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #008080;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-save,
+.btn-cancel {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-save {
+  background-color: #008080;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #006666;
+}
+
+.btn-cancel {
+  background-color: #E5E7EB;
+  color: #1E293B;
+}
+
+.btn-cancel:hover {
+  background-color: #D1D5DB;
+}

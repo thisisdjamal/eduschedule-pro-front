@@ -31,8 +31,11 @@ function DashboardLayout({ children }) {
           { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' },
           { label: 'Cahier de texte', icon: '📖', path: '/cahiers' },
           { label: 'Pointage QR', icon: '📱', path: '/pointage-qr' },
-          { label: 'Vacations', icon: '💰', path: '/vacations' }
+          { label: 'Vacations', icon: '💰', path: '/vacations' },
+          {label: 'Gestion', icon:'⚙️',path:'/gestion'},
         ]
+
+
       case 'enseignant':
         return [
           ...commonItems,
@@ -84,18 +87,17 @@ console.log('Menu items:', menuItems)
 
         <div className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
           <ul className="sidebar-menu">
-            {menuItems.map((item, idx) => (
-              <li 
-                key={idx}
-                className="menu-item" 
-                onClick={() => navigate(item.path)}
-              >
-                <span className="menu-icon">{item.icon}</span>
-                <span className="menu-text">{item.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+  {menuItems.map((item, idx) => (
+    <li 
+      key={idx}
+      className="menu-item" 
+      onClick={() => navigate(item.path)}
+    >
+      <span className="menu-icon">{item.icon}</span>
+      <span className="menu-text">{item.label}</span>
+    </li>
+  ))}
+</ul></div>
 
         <div className="main-content">
           {children}

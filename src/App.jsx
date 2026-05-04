@@ -7,6 +7,7 @@ import EmploiTempsPage from './pages/EmploiTempsPage'
 import CahierTexte from './pages/CahierTexte'
 import VacationsPage from './pages/VacationsPage'
 import PointageQRPage from './pages/PointageQRPage'
+import GestionPage from './pages/GestionPage'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/pointage-qr" element={
             <PointageQRPage />
           } />
+          <Route path="/gestion" element={<GestionPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

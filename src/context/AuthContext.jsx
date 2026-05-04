@@ -31,7 +31,7 @@ export function AuthProvider({ children })
   const [user, setUser] = useState(null)   // État utilisateur : stocke les infos de l'utilisateur connecté (null si pas connecté)
   const [token, setToken] = useState(localStorage.getItem('token') || null) // État token : stocke le JWT reçu du serveur backend
   // On récupère du localStorage s'il existe déjà (pour persister la session)
-  const [role, setRole] = useState(localStorage.getItem('role') || 'admin')  // État rôle : stocke le rôle de l'utilisateur
+  const [role, setRole] = useState(localStorage.getItem('role') || 'delegate')  // État rôle : stocke le rôle de l'utilisateur
   // Valeurs possibles : 'admin', 'enseignant', 'delegate', 'etudiant'
 
    /**
