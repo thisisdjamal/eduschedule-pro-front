@@ -3,6 +3,7 @@ import './DashboardDelegate.css'
 import { useState } from 'react'
 
 function DashboardDelegate() {
+  const [showForm, setShowForm]= useState(false)
   const [mesCahiers] = useState([
     { id: 1, matiere: 'Mathématiques', enseignant: 'M. SANOGO', date: '2025-04-17', statut: 'À remplir' },
     { id: 2, matiere: 'Physique', enseignant: 'Dr BERE', date: '2025-04-16', statut: 'Signé' },
@@ -22,7 +23,7 @@ function DashboardDelegate() {
         
         {/* EMPLOI DU TEMPS */}
         <div className="card">
-          <h4>📅 Emploi du Temps de Ma Classe</h4>
+          <h4> Emploi du Temps de Ma Classe</h4>
           <div className="emploi-list">
             {emploiTemps.map((cours, idx) => (
               <div key={idx} className="cours-item">
@@ -38,7 +39,7 @@ function DashboardDelegate() {
 
         {/* CAHIERS À REMPLIR */}
         <div className="card">
-          <h4>📝 Cahiers de Texte à Remplir</h4>
+          <h4> Cahiers de Texte à Remplir</h4>
           <div className="cahiers-list">
             {mesCahiers.map(cahier => (
               <div key={cahier.id} className="cahier-item">
@@ -52,13 +53,13 @@ function DashboardDelegate() {
               </div>
             ))}
           </div>
-          <button className="btn-create">✍️ Nouveau Cahier</button>
+         
         </div>
 
       </div>
 
       <div className="card">
-        <h4>📊 Mon Activité</h4>
+        <h4> Mon Activité</h4>
         <div className="activity-grid">
           <div className="activity-box">
             <label>Cahiers Signés</label>

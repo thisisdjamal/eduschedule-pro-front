@@ -22,26 +22,26 @@ function EmploiTempsPage() {
   
   const [emploiTemps, setEmploiTemps] = useState({
     'Licence 1': [
-      { id: 1, matiere: 'Développement Web', salle: 'Salle 101', enseignant: 'Dr BERE', jour: 'Lundi', debut: '07:00', fin: '09:00', publie: true },
-      { id: 2, matiere: 'Mathématiques', salle: 'Salle 102', enseignant: 'M. SANOGO', jour: 'Mardi', debut: '08:00', fin: '11:00', publie: true },
-      { id: 3, matiere: 'Programmation C++', salle: 'Salle 101', enseignant: 'M. SANOGO', jour: 'Jeudi', debut: '14:00', fin: '17:00', publie: true },
-      { id: 12, matiere: 'Algorithme', salle: 'Salle 102', enseignant: 'Dr BERE', jour: 'Mercredi', debut: '10:00', fin: '12:00', publie: false },
+      { id: 1, matiere: 'Développement Web', salle: 'Salle 01', enseignant: 'Dr BERE', jour: 'Lundi', debut: '07:00', fin: '09:00', publie: true },
+      { id: 2, matiere: 'Mathématiques', salle: 'Salle 12', enseignant: 'M. NEBIE', jour: 'Mardi', debut: '08:00', fin: '11:00', publie: true },
+      { id: 3, matiere: 'Java', salle: 'Salle 14', enseignant: 'M. SANOGO', jour: 'Jeudi', debut: '14:00', fin: '17:00', publie: true },
+      { id: 12, matiere: 'Anglais', salle: 'Salle 15', enseignant: 'Mr NANGO', jour: 'Mercredi', debut: '10:00', fin: '12:00', publie: false },
     ],
     'Licence 2': [
-      { id: 4, matiere: 'Physique', salle: 'Labo Info', enseignant: 'Dr BERE', jour: 'Mercredi', debut: '08:00', fin: '12:00', publie: false },
-      { id: 5, matiere: 'Algorithme Avancé', salle: 'Salle 103', enseignant: 'M. SANOGO', jour: 'Lundi', debut: '10:00', fin: '12:00', publie: true },
+      { id: 4, matiere: 'Physique', salle: 'Salle 16', enseignant: 'Dr KABORE', jour: 'Mercredi', debut: '08:00', fin: '12:00', publie: false },
+      { id: 5, matiere: 'Traitement du Signal', salle: 'Salle 18', enseignant: 'M. SANOGO', jour: 'Lundi', debut: '10:00', fin: '12:00', publie: true },
     ],
     'Licence 3': [
-      { id: 6, matiere: 'Sécurité Réseaux', salle: 'Salle 103', enseignant: 'Dr BERE', jour: 'Vendredi', debut: '09:00', fin: '12:00', publie: true },
-      { id: 7, matiere: 'Base de Données', salle: 'Salle 104', enseignant: 'M. SANOGO', jour: 'Mercredi', debut: '14:00', fin: '16:00', publie: true },
+      { id: 6, matiere: 'Sécurité Réseaux', salle: 'Salle 08', enseignant: 'M SANOGO', jour: 'Vendredi', debut: '09:00', fin: '12:00', publie: true },
+      { id: 7, matiere: 'Base de Données', salle: 'Salle 104', enseignant: 'M. SAGA', jour: 'Mercredi', debut: '14:00', fin: '16:00', publie: true },
     ],
     'Master 1': [
-      { id: 8, matiere: 'Intelligence Artificielle', salle: 'Salle 105', enseignant: 'Dr BERE', jour: 'Mardi', debut: '09:00', fin: '12:00', publie: true },
-      { id: 9, matiere: 'Cloud Computing', salle: 'Labo Info', enseignant: 'M. SANOGO', jour: 'Jeudi', debut: '10:00', fin: '13:00', publie: false },
+      { id: 8, matiere: 'Intelligence Artificielle', salle: 'Salle 02', enseignant: 'M KAFANDO', jour: 'Mardi', debut: '09:00', fin: '12:00', publie: true },
+      { id: 9, matiere: 'Administration Réseau', salle: 'Labo Réseau', enseignant: 'Mme BERE', jour: 'Jeudi', debut: '10:00', fin: '13:00', publie: false },
     ],
     'Master 2': [
-      { id: 10, matiere: 'Cybersécurité', salle: 'Salle 106', enseignant: 'Dr BERE', jour: 'Lundi', debut: '14:00', fin: '17:00', publie: true },
-      { id: 11, matiere: 'Blockchain', salle: 'Salle 107', enseignant: 'M. SANOGO', jour: 'Vendredi', debut: '10:00', fin: '13:00', publie: true },
+      { id: 10, matiere: 'Cybersécurité', salle: 'Salle 05', enseignant: 'M SANOGO', jour: 'Lundi', debut: '14:00', fin: '17:00', publie: true },
+      { id: 11, matiere: 'Transmission Numérique', salle: 'Salle 11', enseignant: 'M. BONKOUNGOU', jour: 'Vendredi', debut: '10:00', fin: '13:00', publie: true },
     ]
   })
 
@@ -93,7 +93,7 @@ function EmploiTempsPage() {
           e.id === editingId ? { ...formData, id: editingId, publie: false } : e
         )
       })
-      alert('✅ Séance modifiée')
+      alert(' Séance modifiée')
     } else {
       // Créer
       const newSeance = {
@@ -105,7 +105,7 @@ function EmploiTempsPage() {
         ...emploiTemps,
         [selectedClass]: [...emploiTemps[selectedClass], newSeance]
       })
-      alert('✅ Séance créée')
+      alert(' Séance créée')
     }
     handleCloseForm()
   }
@@ -139,7 +139,7 @@ function EmploiTempsPage() {
       ...emploiTemps,
       [selectedClass]: [...emploiTemps[selectedClass], newSeance]
     })
-    alert('✅ Séance dupliquée')
+    alert(' Séance dupliquée')
   }
 
   const handleDelete = (id) => {
@@ -155,7 +155,7 @@ function EmploiTempsPage() {
     ...emploiTemps,
     [classe]: emploiTemps[classe].map(e => ({ ...e, publie: true }))
   })
-  alert('✅ Emploi du temps publié pour ' + classe)
+  alert(' Emploi du temps publié pour ' + classe)
 }
 
 const handleUnpublishEmploiTemps = (classe) => {
@@ -163,7 +163,7 @@ const handleUnpublishEmploiTemps = (classe) => {
     ...emploiTemps,
     [classe]: emploiTemps[classe].map(e => ({ ...e, publie: false }))
   })
-  alert('✅ Emploi du temps dépublié pour ' + classe)
+  alert(' Emploi du temps dépublié pour ' + classe)
 }
 
 const handleDuplicateEmploiTemps = (classe) => {
@@ -176,7 +176,7 @@ const handleDuplicateEmploiTemps = (classe) => {
     ...emploiTemps,
     [classe]: [...emploiTemps[classe], ...seancesDupliquees]
   })
-  alert('✅ Emploi du temps dupliqué vers la semaine suivante')
+  alert(' Emploi du temps dupliqué vers la semaine suivante')
 }
 
   const getSeanceAt = (jour, heure) => {
@@ -318,10 +318,10 @@ const handleDuplicateEmploiTemps = (classe) => {
 
             <div className="form-actions">
               <button className="btn-save" onClick={handleSaveSeance}>
-                {editingId ? '💾 Modifier' : '✅ Créer'}
+                {editingId ? ' Modifier' : ' Créer'}
               </button>
               <button className="btn-cancel" onClick={handleCloseForm}>
-                ❌ Annuler
+                 Annuler
               </button>
             </div>
           </div>
@@ -375,7 +375,7 @@ const handleDuplicateEmploiTemps = (classe) => {
                             
 
                             <span className={`course-status ${seance.publie ? 'publiee' : 'brouillon'}`}>
-                              {seance.publie ? '✅' : '📝'}
+                              {seance.publie ? '' : ''}
                             </span>
                           </div>
                         )}
@@ -391,7 +391,7 @@ const handleDuplicateEmploiTemps = (classe) => {
 
       {/* STATISTIQUES */}
       <div className="stats-section">
-        <h4>📊 Statistiques - {selectedClass}</h4>
+        <h4> Statistiques - {selectedClass}</h4>
         <div className="stats-grid">
           <div className="stat-card">
             <label>Total Séances</label>

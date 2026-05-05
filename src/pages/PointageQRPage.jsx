@@ -35,7 +35,7 @@ function PointageQRPage() {
       if (response.ok) {
         setSeanceInfo(data.seance)
         setStatus('success')
-        setMessage('✅ Pointage enregistré avec succès')
+        setMessage('Pointage enregistré avec succès')
         setQrCode('')
       } else {
         setStatus('error')
@@ -77,7 +77,7 @@ function PointageQRPage() {
             </div>
 
             <button type="submit" disabled={isLoading} className="btn-scan">
-              {isLoading ? '⏳ Traitement...' : '📱 Valider le scan'}
+              {isLoading ? ' Traitement...' : ' Valider le scan'}
             </button>
           </form>
 
@@ -91,8 +91,8 @@ function PointageQRPage() {
         {/* INFOS DE LA SÉANCE */}
         {seanceInfo && (
           <div className="seance-info">
-            <h4>✅ Séance en cours</h4>
-            
+            <h4>Séance en cours</h4>
+          
             <div className="info-grid">
               <div className="info-item">
                 <label>Matière</label>
@@ -139,7 +139,7 @@ function PointageQRPage() {
 
         {/* HISTORIQUE DES POINTAGES */}
         <div className="historique-card">
-          <h4>📋 Historique des Pointages</h4>
+          <h4> Historique des Pointages</h4>
           
           <div className="historique-table">
             <table>

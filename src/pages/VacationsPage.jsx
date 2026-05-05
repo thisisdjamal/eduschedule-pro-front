@@ -56,7 +56,7 @@ function VacationsPage() {
   const [showPDFPreview, setShowPDFPreview] = useState(false)
 
   const handleGenerateFiches = () => {
-    alert('📄 Génération des fiches de vacation pour le mois en cours...')
+    alert(' Génération des fiches de vacation pour le mois en cours...')
   }
 
   const handleViewDetails = (vacation) => {
@@ -68,25 +68,25 @@ function VacationsPage() {
     setVacations(vacations.map(v => 
       v.id === vacationId ? { ...v, signature_enseignant: true } : v
     ))
-    alert('✅ Signature enseignant enregistrée')
+    alert(' Signature enseignant enregistrée')
   }
 
   const handleVisaSurveillant = (vacationId) => {
     setVacations(vacations.map(v => 
       v.id === vacationId ? { ...v, visa_surveillant: true } : v
     ))
-    alert('✅ Visa surveillant enregistré')
+    alert(' Visa surveillant enregistré')
   }
 
   const handleValidationComptable = (vacationId) => {
     setVacations(vacations.map(v => 
       v.id === vacationId ? { ...v, validation_comptable: true, statut: 'Payée' } : v
     ))
-    alert('✅ Validation comptable effectuée - Bon de paiement généré')
+    alert(' Validation comptable effectuée - Bon de paiement généré')
   }
 
   const generatePDF = (vacation) => {
-    alert(`📥 Téléchargement de la fiche PDF de ${vacation.enseignant} pour ${vacation.mois}`)
+    alert(` Téléchargement de la fiche PDF de ${vacation.enseignant} pour ${vacation.mois}`)
   }
 
   if (selectedVacation) {
@@ -107,7 +107,7 @@ function VacationsPage() {
 
           {/* TABLEAU DES SÉANCES */}
           <div className="seances-section">
-            <h4>📋 Détail des Séances</h4>
+            <h4> Détail des Séances</h4>
             <div className="seances-table">
               <table>
                 <thead>
@@ -164,7 +164,7 @@ function VacationsPage() {
 
           {/* VALIDATIONS */}
           <div className="validations-section">
-            <h4>✅ Chaîne de Validation</h4>
+            <h4> Chaîne de Validation</h4>
             
             <div className="validation-steps">
               <div className={`step ${selectedVacation.signature_enseignant ? 'completed' : ''}`}>
@@ -173,10 +173,10 @@ function VacationsPage() {
                   <h5>Signature Enseignant</h5>
                   {!selectedVacation.signature_enseignant ? (
                     <button className="btn-validate" onClick={() => handleSignEnseignant(selectedVacation.id)}>
-                      ✍️ Signer
+                       Signer
                     </button>
                   ) : (
-                    <p className="text-success">✅ Signé</p>
+                    <p className="text-success"> Signé</p>
                   )}
                 </div>
               </div>
@@ -187,10 +187,10 @@ function VacationsPage() {
                   <h5>Visa Surveillant</h5>
                   {!selectedVacation.visa_surveillant ? (
                     <button className="btn-validate" onClick={() => handleVisaSurveillant(selectedVacation.id)}>
-                      🔒 Valider
+                       Valider
                     </button>
                   ) : (
-                    <p className="text-success">✅ Validé</p>
+                    <p className="text-success"> Validé</p>
                   )}
                 </div>
               </div>
@@ -201,10 +201,10 @@ function VacationsPage() {
                   <h5>Validation Comptable</h5>
                   {!selectedVacation.validation_comptable ? (
                     <button className="btn-validate" onClick={() => handleValidationComptable(selectedVacation.id)}>
-                      💰 Approuver
+                       Approuver
                     </button>
                   ) : (
-                    <p className="text-success">✅ Approuvé</p>
+                    <p className="text-success"> Approuvé</p>
                   )}
                 </div>
               </div>
@@ -214,10 +214,10 @@ function VacationsPage() {
           {/* ACTIONS */}
           <div className="detail-actions">
             <button className="btn-primary" onClick={() => { setShowPDFPreview(!showPDFPreview) }}>
-              📄 {showPDFPreview ? 'Masquer' : 'Aperçu'} PDF
+               {showPDFPreview ? 'Masquer' : 'Aperçu'} PDF
             </button>
             <button className="btn-download" onClick={() => generatePDF(selectedVacation)}>
-              📥 Télécharger PDF
+               Télécharger PDF
             </button>
           </div>
 
@@ -225,7 +225,7 @@ function VacationsPage() {
             <div className="pdf-preview">
               <h5>Aperçu PDF</h5>
               <div className="pdf-content">
-                <p>📄 Fiche de Vacation - {selectedVacation.enseignant}</p>
+                <p> Fiche de Vacation - {selectedVacation.enseignant}</p>
                 <p>Période: {selectedVacation.mois}</p>
                 <p>Montant Net: <strong>{selectedVacation.montant_net.toLocaleString('fr-FR')} FCFA</strong></p>
                 <p style={{marginTop: '20px', fontSize: '12px', color: 'gray'}}>
@@ -243,7 +243,7 @@ function VacationsPage() {
     <DashboardLayout>
       <h2>Fiches de Vacation</h2>
 
-      <button className="btn-generate" onClick={handleGenerateFiches}>📄 Générer fiches du mois</button>
+      <button className="btn-generate" onClick={handleGenerateFiches}> Générer fiches du mois</button>
 
       <div className="vacation-table-container">
         <table className="vacation-table">

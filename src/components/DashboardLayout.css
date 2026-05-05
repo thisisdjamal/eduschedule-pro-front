@@ -1,10 +1,12 @@
-.layout-container {
+/*conteneur principal de la mise en page*/
+.layout-container { 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #0f1419;
 }
 
+/*barre de navigation*/
 .navbar {
   background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
   padding: 15px 20px;
@@ -23,11 +25,29 @@
   cursor: pointer;
   margin-right: 15px;
 }
+/*le bouton du menu*/
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #00d4ff;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
 
+.menu-toggle:hover {
+  color: #00f0ff;
+  transform: scale(1.1);
+}
 .toggle-sidebar:hover {
   color: #00f0ff;
 }
-
+/*le texte Eduschedulepro dans la navbar*/
 .navbar-brand {
   color: white;
   margin: 0;
@@ -35,14 +55,14 @@
   font-weight: bold;
   flex: 1;
 }
-
+/*utilisateur+bouton deconnexion*/
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 15px;
   color: white;
 }
-
+/*bouton deconnexion*/
 .logout-btn {
   background-color: #ff3b5c;
   color: white;
@@ -58,12 +78,12 @@
   background-color: #ff1744;
   transform: scale(1.05);
 }
-
+/*sidebar+le contenu*/
 .layout-body {
   display: flex;
   flex: 1;
 }
-
+/*barre laterale sidebar avec le contenu*/
 .sidebar {
   background-color: #1a1f2e;
   padding: 20px 0;
@@ -71,21 +91,21 @@
   border-right: 2px solid #ff6200;
   overflow-y: auto;
 }
-
+/*la sidebar ouverte(quand le texte s'affiche)*/
 .sidebar.open {
   width: 280px;
 }
-
+/*sidebar fermee (quand ce ne sont que les icones qui sont visibles*/
 .sidebar.closed {
   width: 80px;
 }
-
+/*laliste du menu,les elements du ul*/
 .sidebar-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
+/*tableau de bord, emploi du temps,ect*/
 .menu-item {
   display: flex;
   align-items: center;
@@ -99,7 +119,7 @@
   position: relative;
   overflow: hidden;
 }
-
+/*la barre verticale bleu*/
 .menu-item::before {
   content: '';
   position: absolute;
@@ -149,7 +169,7 @@
   margin-top: 0;
 }
 
-/* RESPONSIVE */
+/* pour les ecrans mobiles*/
 @media (max-width: 768px) {
   .sidebar.open {
     width: 250px;
@@ -160,9 +180,7 @@
     gap: 10px;
   }
 }
-/* ============================================================================
-   SECTION TITLES DANS LA SIDEBAR
-   ============================================================================ */
+/* SECTION TITLES DANS LA SIDEBAR*/
 
 .sidebar-section-title {
   padding: 12px 16px;
@@ -174,4 +192,14 @@
   letter-spacing: 0.5px;
   border-top: 1px solid #E5E7EB;
   border-bottom: 1px solid #E5E7EB;
+}
+.toggle-sidebar svg {
+  stroke: #00d4ff;
+  stroke-width: 2.5;
+  transition: all 0.3s ease;
+}
+
+.toggle-sidebar:hover svg {
+  stroke: #00f0ff;
+  stroke-width: 3;
 }

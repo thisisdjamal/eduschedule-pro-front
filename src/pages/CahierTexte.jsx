@@ -102,7 +102,7 @@ function CahierTexte() {
 
     //ferme le formulaire et affiche un message de succes
     setShowForm(false)
-    alert('✅ Cahier de texte enregistré et signé')
+    alert(' Cahier de texte enregistré et signé')
   }
 //efface une signature et permet a l'utilisateur de recommencer sa signature si il s'est trompé
   const handleClearSignature = (pad) => {
@@ -158,7 +158,7 @@ function CahierTexte() {
       {showForm && (
         <div className="cahier-form-container">
           <div className="cahier-form-card">
-            <h4>📝 Nouveau Cahier de Texte</h4>
+            <h4> Nouveau Cahier de Texte</h4>
 
             <div className="form-row">
               <div className="form-group">
@@ -217,7 +217,7 @@ function CahierTexte() {
             </div>
 
             <div className="signatures-section">
-              <h5>✍️ Signatures Numériques</h5>
+              <h5> Signatures Numériques</h5>
 
               <div className="signature-grid">
                 <div className="signature-box">
@@ -235,8 +235,8 @@ function CahierTexte() {
             </div>
 
             <div className="form-actions">
-              <button className="btn-save" onClick={handleSaveCahier}>✅ Enregistrer et Signer</button>
-              <button className="btn-cancel" onClick={() => setShowForm(false)}>❌ Annuler</button>
+              <button className="btn-save" onClick={handleSaveCahier}> Enregistrer et Signer</button>
+              <button className="btn-cancel" onClick={() => setShowForm(false)}> Annuler</button>
             </div>
           </div>
         </div>

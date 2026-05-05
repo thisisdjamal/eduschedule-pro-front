@@ -30,7 +30,7 @@ function DashboardEnseignant() {
         
         {/* MES SÉANCES */}
         <div className="card">
-          <h4>📅 Mes Séances de la Semaine</h4>
+          <h4> Mes Séances de la Semaine</h4>
           <div className="seances-list">
             {mesSeances.map(seance => (
               <div key={seance.id} className="seance-item">
@@ -46,7 +46,7 @@ function DashboardEnseignant() {
 
         {/* MES FICHES DE VACATION */}
         <div className="card">
-          <h4>💰 Mes Fiches de Vacation</h4>
+          <h4> Mes Fiches de Vacation</h4>
           <div className="fiches-list">
             {mesFiches.map(fiche => (
               <div key={fiche.id} className="fiche-item">
@@ -63,7 +63,7 @@ function DashboardEnseignant() {
       </div>
 
       <div className="card">
-        <h4>📊 Statistiques Personnelles</h4>
+        <h4> Statistiques Personnelles</h4>
         <div className="stats-grid">
           <div className="stat-box">
             <label>Heures Enseignées (Mois)</label>
@@ -82,7 +82,7 @@ function DashboardEnseignant() {
 
       {/* HISTORIQUE MENSUEL */}
       <div className="card">
-        <h4>📈 Historique Mensuel de Mes Séances</h4>
+        <h4> Historique Mensuel de Mes Séances</h4>
         <div className="historique-table">
           <table>
             <thead>

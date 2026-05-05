@@ -5,7 +5,7 @@ import { useState } from 'react'
 function GestionPage() {
   const [activeTab, setActiveTab] = useState('salles')
 
-  // ===== SALLES =====
+  // SALLES
   const [salles, setSalles] = useState([
     { id: 1, code: 'S101', libelle: 'Salle 101', capacite: 50, equipements: 'Tableau blanc, Projecteur' },
     { id: 2, code: 'S102', libelle: 'Salle 102', capacite: 40, equipements: 'Tableau blanc' },
@@ -29,17 +29,17 @@ function GestionPage() {
       capacite: parseInt(salleFormData.capacite)
     }
     setSalles([...salles, newSalle])
-    alert('✅ Salle ajoutée')
+    alert(' Salle ajoutée')
     handleCloseSalleForm()
   }
   const handleDeleteSalle = (id) => {
     if (window.confirm('Êtes-vous sûr ?')) {
       setSalles(salles.filter(s => s.id !== id))
-      alert('✅ Salle supprimée')
+      alert(' Salle supprimée')
     }
   }
 
-  // ===== MATIERES =====
+  // MATIERES
   const [matieres, setMatieres] = useState([
     { id: 1, code: 'DW', libelle: 'Développement Web', volumeHoraire: 60 },
     { id: 2, code: 'MATH', libelle: 'Mathématiques', volumeHoraire: 80 },
@@ -63,17 +63,17 @@ function GestionPage() {
       volumeHoraire: parseInt(matiereFormData.volumeHoraire)
     }
     setMatieres([...matieres, newMatiere])
-    alert('✅ Matière ajoutée')
+    alert(' Matière ajoutée')
     handleCloseMatiereForm()
   }
   const handleDeleteMatiere = (id) => {
     if (window.confirm('Êtes-vous sûr ?')) {
       setMatieres(matieres.filter(m => m.id !== id))
-      alert('✅ Matière supprimée')
+      alert(' Matière supprimée')
     }
   }
 
-  // ===== ENSEIGNANTS =====
+  //  ENSEIGNANTS 
   const [enseignants, setEnseignants] = useState([
     { id: 1, nom: 'BERE', prenom: 'Cédric', email: 'bere@itrst.com', specialite: 'Développement Web' },
     { id: 2, nom: 'SANOGO', prenom: 'Mohamed', email: 'sanogo@itrst.com', specialite: 'Mathématiques' },
@@ -96,17 +96,17 @@ function GestionPage() {
       id: Math.max(...enseignants.map(e => e.id)) + 1
     }
     setEnseignants([...enseignants, newEnseignant])
-    alert('✅ Enseignant ajouté')
+    alert(' Enseignant ajouté')
     handleCloseEnseignantForm()
   }
   const handleDeleteEnseignant = (id) => {
     if (window.confirm('Êtes-vous sûr ?')) {
       setEnseignants(enseignants.filter(e => e.id !== id))
-      alert('✅ Enseignant supprimé')
+      alert(' Enseignant supprimé')
     }
   }
 
-  // ===== DELEGUES =====
+  //  DELEGUES 
   const [delegues, setDelegues] = useState([
     { id: 1, nom: 'TRAORE', prenom: 'Fatoumata', email: 'traore@student.com', classe: 'Licence 1' },
     { id: 2, nom: 'DIALLO', prenom: 'Ibrahim', email: 'diallo@student.com', classe: 'Licence 2' },
@@ -129,13 +129,13 @@ function GestionPage() {
       id: Math.max(...delegues.map(d => d.id)) + 1
     }
     setDelegues([...delegues, newDeligue])
-    alert('✅ Délégué ajouté')
+    alert(' Délégué ajouté')
     handleCloseDelegueForm()
   }
   const handleDeleteDeligue = (id) => {
     if (window.confirm('Êtes-vous sûr ?')) {
       setDelegues(delegues.filter(d => d.id !== id))
-      alert('✅ Délégué supprimé')
+      alert(' Délégué supprimé')
     }
   }
 
@@ -146,16 +146,16 @@ function GestionPage() {
       {/* TABS */}
       <div className="gestion-tabs">
         <button className={`tab-btn ${activeTab === 'salles' ? 'active' : ''}`} onClick={() => setActiveTab('salles')}>
-          🏛️ Salles
+           Salles
         </button>
         <button className={`tab-btn ${activeTab === 'matieres' ? 'active' : ''}`} onClick={() => setActiveTab('matieres')}>
-          📚 Matières
+           Matières
         </button>
         <button className={`tab-btn ${activeTab === 'enseignants' ? 'active' : ''}`} onClick={() => setActiveTab('enseignants')}>
-          👨‍🏫 Enseignants
+           Enseignants
         </button>
         <button className={`tab-btn ${activeTab === 'delegues' ? 'active' : ''}`} onClick={() => setActiveTab('delegues')}>
-          👤 Délégués
+           Délégués
         </button>
       </div>
 
@@ -185,8 +185,8 @@ function GestionPage() {
                     <td>{salle.capacite}</td>
                     <td>{salle.equipements}</td>
                     <td className="actions">
-                      <button className="btn-edit">✏️</button>
-                      <button className="btn-delete" onClick={() => handleDeleteSalle(salle.id)}>🗑️</button>
+                      <button className="btn-edit"></button>
+                      <button className="btn-delete" onClick={() => handleDeleteSalle(salle.id)}></button>
                     </td>
                   </tr>
                 ))}
@@ -217,14 +217,14 @@ function GestionPage() {
                 <input type="text" value={salleFormData.equipements} onChange={(e) => setSalleFormData({ ...salleFormData, equipements: e.target.value })} placeholder="Ex: Tableau blanc, Projecteur" />
               </div>
               <div className="form-actions">
-                <button className="btn-save" onClick={handleSaveSalle}>✅ Créer</button>
-                <button className="btn-cancel" onClick={handleCloseSalleForm}>❌ Annuler</button>
+                <button className="btn-save" onClick={handleSaveSalle}> Créer</button>
+                <button className="btn-cancel" onClick={handleCloseSalleForm}> Annuler</button>
               </div>
             </div>
           </div>
         )}
 
-        {/* ===== MATIERES ===== */}
+        {/*  MATIERES*/}
         {activeTab === 'matieres' && (
           <div className="tab-content">
             <h3>Gestion des Matières</h3>
@@ -245,8 +245,8 @@ function GestionPage() {
                     <td>{matiere.libelle}</td>
                     <td>{matiere.volumeHoraire}h</td>
                     <td className="actions">
-                      <button className="btn-edit">✏️</button>
-                      <button className="btn-delete" onClick={() => handleDeleteMatiere(matiere.id)}>🗑️</button>
+                      <button className="btn-edit"></button>
+                      <button className="btn-delete" onClick={() => handleDeleteMatiere(matiere.id)}></button>
                     </td>
                   </tr>
                 ))}
@@ -273,14 +273,14 @@ function GestionPage() {
                 <input type="number" value={matiereFormData.volumeHoraire} onChange={(e) => setMatiereFormData({ ...matiereFormData, volumeHoraire: e.target.value })} placeholder="Ex: 60" />
               </div>
               <div className="form-actions">
-                <button className="btn-save" onClick={handleSaveMatiere}>✅ Créer</button>
-                <button className="btn-cancel" onClick={handleCloseMatiereForm}>❌ Annuler</button>
+                <button className="btn-save" onClick={handleSaveMatiere}> Créer</button>
+                <button className="btn-cancel" onClick={handleCloseMatiereForm}> Annuler</button>
               </div>
             </div>
           </div>
         )}
 
-        {/* ===== ENSEIGNANTS ===== */}
+        {/* ENSEIGNANTS */}
         {activeTab === 'enseignants' && (
           <div className="tab-content">
             <h3>Gestion des Enseignants</h3>
@@ -303,8 +303,8 @@ function GestionPage() {
                     <td>{ens.email}</td>
                     <td>{ens.specialite}</td>
                     <td className="actions">
-                      <button className="btn-edit">✏️</button>
-                      <button className="btn-delete" onClick={() => handleDeleteEnseignant(ens.id)}>🗑️</button>
+                      <button className="btn-edit"></button>
+                      <button className="btn-delete" onClick={() => handleDeleteEnseignant(ens.id)}></button>
                     </td>
                   </tr>
                 ))}
@@ -335,14 +335,14 @@ function GestionPage() {
                 <input type="text" value={enseignantFormData.specialite} onChange={(e) => setEnseignantFormData({ ...enseignantFormData, specialite: e.target.value })} placeholder="Ex: Développement Web" />
               </div>
               <div className="form-actions">
-                <button className="btn-save" onClick={handleSaveEnseignant}>✅ Créer</button>
-                <button className="btn-cancel" onClick={handleCloseEnseignantForm}>❌ Annuler</button>
+                <button className="btn-save" onClick={handleSaveEnseignant}> Créer</button>
+                <button className="btn-cancel" onClick={handleCloseEnseignantForm}> Annuler</button>
               </div>
             </div>
           </div>
         )}
 
-        {/* ===== DELEGUES ===== */}
+        {/* DELEGUES */}
         {activeTab === 'delegues' && (
           <div className="tab-content">
             <h3>Gestion des Délégués</h3>
@@ -365,8 +365,8 @@ function GestionPage() {
                     <td>{del.email}</td>
                     <td>{del.classe}</td>
                     <td className="actions">
-                      <button className="btn-edit">✏️</button>
-                      <button className="btn-delete" onClick={() => handleDeleteDeligue(del.id)}>🗑️</button>
+                      <button className="btn-edit"></button>
+                      <button className="btn-delete" onClick={() => handleDeleteDeligue(del.id)}></button>
                     </td>
                   </tr>
                 ))}
@@ -375,7 +375,7 @@ function GestionPage() {
           </div>
         )}
 
-        {/* FORMULAIRE DELIGUE */}
+        {/* FORMULAIRE DELEGUE */}
         {showDelegueForm && (
           <div className="form-modal">
             <div className="form-container">
@@ -403,8 +403,8 @@ function GestionPage() {
                 </select>
               </div>
               <div className="form-actions">
-                <button className="btn-save" onClick={handleSaveDeligue}>✅ Créer</button>
-                <button className="btn-cancel" onClick={handleCloseDelegueForm}>❌ Annuler</button>
+                <button className="btn-save" onClick={handleSaveDeligue}> Créer</button>
+                <button className="btn-cancel" onClick={handleCloseDelegueForm}>Annuler</button>
               </div>
             </div>
           </div>

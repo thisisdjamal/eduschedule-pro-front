@@ -42,7 +42,7 @@ function DashboardLayout({ children }) {
           { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' },
           { label: 'Cahier de texte', icon: '📖', path: '/cahiers' },
           { label: 'Pointage QR', icon: '📱', path: '/pointage-qr' },
-          { label: 'Vacations', icon: '💰', path: '/vacations' }
+          { label: 'Vacations', icon: '💰', path: '/vacations' },
         ]
       case 'delegate':
         return [
