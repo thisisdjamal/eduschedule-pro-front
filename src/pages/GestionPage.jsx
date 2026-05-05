@@ -185,8 +185,8 @@ function GestionPage() {
                     <td>{salle.capacite}</td>
                     <td>{salle.equipements}</td>
                     <td className="actions">
-                      <button className="btn-edit"></button>
-                      <button className="btn-delete" onClick={() => handleDeleteSalle(salle.id)}></button>
+                    
+                      <button className="btn-delete" onClick={() => handleDeleteSalle(salle.id)}>Supprimer</button>
                     </td>
                   </tr>
                 ))}
@@ -245,8 +245,8 @@ function GestionPage() {
                     <td>{matiere.libelle}</td>
                     <td>{matiere.volumeHoraire}h</td>
                     <td className="actions">
-                      <button className="btn-edit"></button>
-                      <button className="btn-delete" onClick={() => handleDeleteMatiere(matiere.id)}></button>
+                     
+                      <button className="btn-delete" onClick={() => handleDeleteMatiere(matiere.id)}>Supprimer</button>
                     </td>
                   </tr>
                 ))}
@@ -303,8 +303,8 @@ function GestionPage() {
                     <td>{ens.email}</td>
                     <td>{ens.specialite}</td>
                     <td className="actions">
-                      <button className="btn-edit"></button>
-                      <button className="btn-delete" onClick={() => handleDeleteEnseignant(ens.id)}></button>
+                      
+                      <button className="btn-delete" onClick={() => handleDeleteEnseignant(ens.id)}>Supprimer</button>
                     </td>
                   </tr>
                 ))}
@@ -365,8 +365,8 @@ function GestionPage() {
                     <td>{del.email}</td>
                     <td>{del.classe}</td>
                     <td className="actions">
-                      <button className="btn-edit"></button>
-                      <button className="btn-delete" onClick={() => handleDeleteDeligue(del.id)}></button>
+                      
+                      <button className="btn-delete" onClick={() => handleDeleteDelegue(del.id)}>Supprimer</button>
                     </td>
                   </tr>
                 ))}
@@ -404,7 +404,7 @@ function GestionPage() {
               </div>
               <div className="form-actions">
                 <button className="btn-save" onClick={handleSaveDeligue}> Créer</button>
-                <button className="btn-cancel" onClick={handleCloseDelegueForm}>Annuler</button>
+                <button className="btn-cancel" onClick={handleCloseDelegueForm}> Annuler</button>
               </div>
             </div>
           </div>

@@ -82,7 +82,7 @@ function CahierTexte() {
     }
 
     const newCahier = {
-      id: cahiers.length + 1,
+  id: Math.max(...cahiers.map(c => c.id)) + 1,  // ← ID unique garanti
       classe: formData.classe,
       matiere: formData.matiere,
       date: new Date().toISOString().split('T')[0],
@@ -109,7 +109,12 @@ function CahierTexte() {
     if (pad === 'delegu') signaturePadDelegu?.clear()
     if (pad === 'enseignant') signaturePadEnseignant?.clear()
   }
-
+ const handleDeleteCahier = (id) => {
+  if (window.confirm('Êtes-vous sûr de vouloir supprimer ce cahier ?')) {
+    setCahiers(cahiers.filter(c => c.id !== id))
+    alert(' Cahier supprimé')
+  }
+}
   const handleViewCahier = (cahier) => {
     setCurrentCahier(cahier)
   }
@@ -146,6 +151,7 @@ function CahierTexte() {
                     <td><span className={`badge badge-${cahier.statut.toLowerCase()}`}>{cahier.statut}</span></td>
                     <td>
                       <button className="btn-action" onClick={() => handleViewCahier(cahier)}>Voir</button>
+                      <button className="btn-delete" onClick={() => handleDeleteCahier(cahier.id)}>Supprimer</button>
                     </td>
                   </tr>
                 ))}
