@@ -14,23 +14,21 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          {/*on utilise les routes pour naviguer entre les pages de l'application, chaque route est protégée par le composant ProtectedRoute qui vérifie le rôle de l'utilisateur avant d'afficher la page correspondante.*/} 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<Navigate to="/login" />} />
           
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/dashboard" element={<ProtectedRoute allowedRoles={["admin", "enseignant", "delegue", "surveillant", "comptable"]}><DashboardPage /></ProtectedRoute>} />
           
-          <Route path="/emploi-temps" element={
-            <EmploiTempsPage />
-          } />
-          <Route path="/cahiers" element={<CahierTexte/>
-          } />
-          <Route path="/vacations" element={
-            <VacationsPage />
-          } />
-          <Route path="/pointage-qr" element={
-            <PointageQRPage />
-          } />
-          <Route path="/gestion" element={<GestionPage />} />
+          <Route path="/emploi-temps" element={<ProtectedRoute allowedRoles={["admin", "enseignant", "delegue", "comptable", "etudiant", "surveillant"]}><EmploiTempsPage /></ProtectedRoute>} />
+
+          <Route path="/cahiers" element={<ProtectedRoute allowedRoles={["admin", "enseignant", "delegue", "surveillant"]}><CahierTexte/></ProtectedRoute>} />
+
+          <Route path="/vacations" element={<ProtectedRoute allowedRoles={["admin", "enseignant", "comptable", "surveillant"]}><VacationsPage /></ProtectedRoute>} />
+
+          <Route path="/pointage-qr" element={<ProtectedRoute allowedRoles={["admin", "enseignant"]}><PointageQRPage /></ProtectedRoute>} />
+
+          <Route path="/gestion" element={<ProtectedRoute allowedRoles={["admin"]}><GestionPage /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

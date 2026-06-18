@@ -18,12 +18,15 @@ function DashboardLayout({ children }) {
   }
 
   // Menu items selon le rôle
-  const getMenuItems = () => { // Items communs à tous les rôles
+  const getMenuItems = () => { // le dashboard est commun  à tous les rôles mais il n'est pas le même pour tous les rôles, il affiche des informations différentes selon le rôle de l'utilisateur connecté.
     const commonItems = [
-      { label: 'Tableau de bord', icon: '📊', path: '/dashboard' }
+      {
+        label: 'Tableau de bord',
+        icon: '📊',
+        path: '/dashboard'
+      }
     ]
-    
-    switch(role) // retourne les items selon le role 
+    switch(user?.role) // retourne les items selon le role 
     {
       case 'admin':
         return [
@@ -35,7 +38,6 @@ function DashboardLayout({ children }) {
           {label: 'Gestion', icon:'⚙️',path:'/gestion'},
         ]
 
-
       case 'enseignant':
         return [
           ...commonItems,
@@ -44,7 +46,7 @@ function DashboardLayout({ children }) {
           { label: 'Pointage QR', icon: '📱', path: '/pointage-qr' },
           { label: 'Vacations', icon: '💰', path: '/vacations' },
         ]
-      case 'delegate':
+      case 'delegue':
         return [
           ...commonItems,
           { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' },
@@ -54,14 +56,24 @@ function DashboardLayout({ children }) {
         return [
           { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' }
         ]
+      case 'surveillant':
+        return [
+          { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' },
+          { label: 'Cahier de texte', icon: '📖', path: '/cahiers' },
+          { label: 'Vacations', icon: '💰', path: '/vacations' }
+        ]
+      case 'comptable':
+        return [
+          { label: 'Emploi du temps', icon: '📅', path: '/emploi-temps' },
+          { label: 'Vacations', icon: '💰', path: '/vacations' }
+        ]
       default:
         return commonItems
     }
   }
 
-  const menuItems = getMenuItems() //recupere les items du menu selon le role
-console.log('Role:', role)
-console.log('Menu items:', menuItems)
+  // Récupère les items du menu selon le rôle de l'utilisateur connecté
+  const menuItems = getMenuItems()
 
   return (
     <div className="layout-container">
@@ -76,7 +88,7 @@ console.log('Menu items:', menuItems)
         </button>
         <h5 className="navbar-brand">EduSchedule Pro</h5>
         <div className="navbar-right">
-          <span>👤 {user?.nom || 'Utilisateur'}</span>
+          <span>👤 {user?.email || 'Utilisateur'}</span>
           <button onClick={handleLogout} className="logout-btn">
             Déconnexion
           </button>
