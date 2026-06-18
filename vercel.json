@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
+      "source": "/api/auth/:path*",
+      "destination": "https://theduschedulepro.whf.bz/api/auth/:path*"
+    },
+    {
       "source": "/api/:path*",
-      "destination": "http://theduschedulepro.whf.bz/api/:path*"
+      "destination": "https://theduschedulepro.whf.bz/api/:path*"
     }
   ]
 }
